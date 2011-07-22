@@ -75,7 +75,7 @@ public class BusinessTester extends TestCase
 		try 
 		{
 			_subject.charge();
-			assert(false);
+			fail();
 		}
 		catch (NullPointerException e) {}
 	}

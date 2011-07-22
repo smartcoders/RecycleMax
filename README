@@ -1,4 +1,4 @@
-<h1> The Problem<h1>
+The Problem
 
 The example problem is that of an electricity utility charging its customers.
 The utility has several kinds of customers and charges them in different ways.
@@ -9,3 +9,5 @@ Lifeline, and Business.
 In each case the principal task of the class is to calculate the latest charge. 
 The algorithms show quite different code but, as we shall see, there is still a 
 great deal of commonality.
+
+extracted from http://www.refactoring.com/rejectedExample.pdf
