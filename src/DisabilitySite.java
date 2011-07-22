@@ -8,6 +8,10 @@ class DisabilitySite
 	private Zone _zone;
 	private static final int CAP = 200;
 	
+	public DisabilitySite(Zone zone) {
+		_zone = zone;
+	}
+	
 	public void addReading(Reading newReading)
 	{
 		int i;

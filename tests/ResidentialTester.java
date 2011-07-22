@@ -8,11 +8,10 @@ public class ResidentialTester extends TestCase
 	
 	public void setUp() 
 	{
-		Registry.add("Unit", new Unit ("USD"));
 		new Zone ("A", 0.06, 0.07, new Date ("15 May 1997"), new Date ("10 Sep 1997")).persist();
 		new Zone ("B", 0.07, 0.06, new Date ("5 Jun 1997"), new Date ("31 Aug 1997")).persist();
 		new Zone ("C", 0.065, 0.065, new Date ("5 Jun 1997"), new Date ("31 Aug	1997")).persist();
-		_subject = new ResidentialSite((Zone) Registry.get("Zone", "A"));
+		_subject = new ResidentialSite((Zone) Registry.get("A"));
 	}
 	
 	public void testZero() 
@@ -73,15 +72,10 @@ public class ResidentialTester extends TestCase
 	
 	public void testNoReadings() 
 	{
-		assertEquals (new Dollars(0), _subject.charge());
-	}
-	
-	public void testNoReadingsWithNullPointerException() 
-	{
 		try 
 		{
 			_subject.charge();
-			assert(false);
+			fail();
 		}
 		catch (NullPointerException e) {}
 	}

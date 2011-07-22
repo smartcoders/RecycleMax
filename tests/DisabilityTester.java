@@ -8,11 +8,10 @@ public class DisabilityTester extends TestCase
 	
 	public void setUp() 
 	{
-		Registry.add("Unit", new Unit ("USD"));
 		new Zone ("A", 0.06, 0.07, new Date ("15 May 1997"), new Date ("10 Sep 1997")).persist();
 		new Zone ("B", 0.07, 0.06, new Date ("5 Jun 1997"), new Date ("31 Aug 1997")).persist();
 		new Zone ("C", 0.065, 0.065, new Date ("5 Jun 1997"), new Date ("31 Aug	1997")).persist();
-		_subject = new DisabilitySite();
+		_subject = new DisabilitySite(Registry.get("A"));
 	}
 	
 	public void testZero() 
@@ -68,20 +67,15 @@ public class DisabilityTester extends TestCase
 	{
 		_subject.addReading(new Reading (0, new Date ("1 Jan 1997")));
 		_subject.addReading(new Reading (Integer.MAX_VALUE, new Date ("1 Feb 1997")));
-		assertEquals (new Dollars(1.9730005336E8), _subject.charge());
+		assertEquals (new Dollars(177382151.02), _subject.charge());
 	}
 	
 	public void testNoReadings() 
 	{
-		assertEquals (new Dollars(0), _subject.charge());
-	}
-	
-	public void testNoReadingsWithNullPointerException() 
-	{
 		try 
 		{
 			_subject.charge();
-			assert(false);
+			fail();
 		}
 		catch (NullPointerException e) {}
 	}

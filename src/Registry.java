@@ -1,13 +1,16 @@
+import java.util.HashMap;
+import java.util.Map;
+
 class Registry {
 
-	public static void add(String string, Object object) {
-		// TODO Auto-generated method stub
-		
+	private static Map<String, Zone> registry = new HashMap<String, Zone>();
+
+	public static void add(Zone zone) {
+		registry.put(zone.name(), zone);
 	}
 
-	public static Object get(String string, String name) {
-		// TODO Auto-generated method stub
-		return null;
+	public static Zone get(String name) {
+		return registry.get(name);
 	}
 
 }

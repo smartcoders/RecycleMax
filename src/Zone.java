@@ -3,13 +3,13 @@ import java.util.Date;
 class Zone {
 	public Zone persist() 
 	{
-		Registry.add("Zone", this);
+		Registry.add(this);
 		return this;
 	}
 	
 	public static Zone get (String name) 
 	{
-		return (Zone) Registry.get("Zone", name);
+		return (Zone) Registry.get(name);
 	}
 	
 	public Date summerEnd() 
@@ -30,6 +30,11 @@ class Zone {
 	public double summerRate() 
 	{
 		return _summerRate;
+	}
+	
+	public String name()
+	{
+		return _name;
 	}
 	
 	Zone (String name, double summerRate, double winterRate, Date summerStart, Date summerEnd) 
