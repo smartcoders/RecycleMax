@@ -1,15 +1,12 @@
-Count on Cantor 
-Time limit: 3.000 seconds.
+h1.Count on Cantor 
 
-One of the famous proofs of modern mathematics is Georg Cantor's demonstration 
+h3.Time limit: 3.000 seconds.
+
+p.One of the famous proofs of modern mathematics is Georg Cantor's demonstration 
 that the set of rational numbers is enumerable. The proof works by using an 
 explicit enumeration of rational numbers as shown in the diagram below.
 
-    1/1 1/2 1/3 1/4 1/5 ...
-    2/1 2/2 2/3 2/4
-    3/1 3/2 3/3
-    4/1 4/2
-    5/1
+   !http://uva.onlinejudge.org/external/2/264img1.gif!
 
 In the above diagram, 
 the first term is 1/1, 
