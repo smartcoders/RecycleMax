@@ -1,0 +1,31 @@
+h1. Spreadsheet Calculator 
+
+h3. Time limit: 3.000 seconds
+
+p<>. A spreadsheet is a rectangular array of cells. Cells contain data or expressions that can be evaluated to obtain data. A ``simple" spreadsheet is one in which data are integers and expressions are mixed sums and differences of integers and cell references. For any expression, if each cell that is referenced contains an integer, then the expression can be replaced by the integer to which the expression evaluates. You are to write a program which evaluates simple spreadsheets.
+
+h2. Input
+
+p<>. Input consists of a sequence of simple spreadsheets. Each spreadsheet begins with a line specifying the number of rows and the number of columns. No spreadsheet contains more than 20 rows or 10 columns. Rows are labeled by capital letters A through T. Columns are labeled by decimal digits 0 through 9. Therefore, the cell in the first row and first column is referenced as A0; the cell in the twentieth row and fifth column is referenced as T4.
+
+p<>. Following the specification of the number of rows and columns is one line of data for each cell, presented in row-major order. (That is, all cells for the first row come first, followed by all cells for the second row, etc.)
+
+p<>. Each cell initially contains a signed integer value or an expression involving unsigned integer constants, cell references, and the operators + (addition) and - (subtraction).
+
+p<>. If a cell initially contains a signed integer, the corresponding input line will begin with an optional minus sign followed by one or more decimal digits.
+
+p<>. If a cell initially contains an expression, its input line will contain one or more cell references or unsigned integer constants separated from each other by + and - signs. Such a line must begin with a cell reference. No expression contains more than 75 characters. No line of input contains leading blanks. No expression contains any embedded blanks. However, any line may contain trailing blanks.
+
+p<>. The end of the sequence of spreadsheets is marked by a line specifying 0 rows and 0 columns.
+
+h2. Output
+
+p<>. For each spreadsheet in the input, you are to determine the value of each expression and display the resulting spreadsheet as a rectangular array of numbers with the rows and columns appropriately labeled. In each display, all numbers for a column must appear right-justified and aligned with the column label.
+
+p<>. Operators are evaluated left to right in each expression; values in cells are always less than 10000 in absolute value. Since expressions may reference cells that themselves contain expressions, the order in which cells are evaluated is dependent on the expressions themselves.
+
+p<>. If one or more cells in a spreadsheet contain expressions with circular references, then the output for that spreadsheet should contain only a list of the unevaluated cells in row-major order, one per line, with each line containing the cell label, a colon, a blank, and the cell's original expression.
+
+p<>. A blank line should appear following the output for each spreadsheet.
+
+Problem extracted from "Spreadsheet Calculator":http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=4&page=show_problem&problem=151
