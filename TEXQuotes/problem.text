@@ -50,3 +50,5 @@ The text must be output exactly as it was input except that:
 
 the first " in each pair is replaced by two ` characters: `` 
 and the second " in each pair is replaced by two ' characters: ''.
+
+source: http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=4&page=show_problem&problem=208

@@ -11,7 +11,6 @@ explicit enumeration of rational numbers as shown in the diagram below.
     4/1 4/2
     5/1
 
-
 In the above diagram, 
 the first term is 1/1, 
 the second term is 1/2,
@@ -29,3 +28,4 @@ enumeration as given below. No blank line should appear after the last number.
 The input list contains a single number per line and will be terminated by 
 end-of-file.
 
+source: http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=4&page=show_problem&problem=200
