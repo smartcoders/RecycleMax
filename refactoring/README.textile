@@ -1,0 +1,5 @@
+h1. The Problem
+
+p<>. The example problem is that of an electricity utility charging its customers. The utility has several kinds of customers and charges them in different ways. In all cases, however, it wants to know how many dollars it should charge them for the latest reading. The types of customer are: Residential, Disability, Lifeline, and Business. In each case the principal task of the class is to calculate the latest charge. The algorithms show quite different code but, as we shall see, there is still a great deal of commonality.
+
+p<>. Problem extracted from "Rejected Example":http://www.refactoring.com/rejectedExample.pdf
