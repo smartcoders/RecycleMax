@@ -2,27 +2,16 @@ h1. Count on Cantor
 
 h3. Time limit: 3.000 seconds.
 
-p. One of the famous proofs of modern mathematics is Georg Cantor's demonstration 
-that the set of rational numbers is enumerable. The proof works by using an 
-explicit enumeration of rational numbers as shown in the diagram below.
+p<>. One of the famous proofs of modern mathematics is Georg Cantor's demonstration that the set of rational numbers is enumerable. The proof works by using an explicit enumeration of rational numbers as shown in the diagram below.
 
    !http://uva.onlinejudge.org/external/2/264img1.gif!
 
-p. In the above diagram, 
-the first term is 1/1, 
-the second term is 1/2,
-the third term is 2/1, 
-the fourth term is 3/1,
-the fifth term is 2/2, 
-and so on.
+p<>. In the above diagram, the first term is 1/1, the second term is 1/2, the third term is 2/1, the fourth term is 3/1, the fifth term is 2/2, and so on.
 
 h2. Input and Output
 
-p. You are to write a program that will read a list of numbers in the range from 1 
-to 10ˆ7 and will print for each number the corresponding term in Cantor's 
-enumeration as given below. No blank line should appear after the last number.
+p<>. You are to write a program that will read a list of numbers in the range from 1 to 10^7^ and will print for each number the corresponding term in Cantor's enumeration as given below. No blank line should appear after the last number.
 
-p. The input list contains a single number per line and will be terminated by 
-end-of-file.
+p<>. The input list contains a single number per line and will be terminated by end-of-file.
 
 extracted from "Count on Cantor":http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=4&page=show_problem&problem=200
