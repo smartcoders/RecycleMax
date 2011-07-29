@@ -1,4 +1,5 @@
 Quirksome Squares 
+Time limit: 3.000 seconds
 
 The number 3025 has a remarkable quirk: 
 if you split its decimal representation in two strings of equal length 
