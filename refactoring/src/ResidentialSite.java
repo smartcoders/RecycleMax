@@ -35,7 +35,7 @@ class ResidentialSite
 			
 		}
 		else {
-			return new Dollars(0);
+			throw new NullPointerException();
 		}
 	}
 	
