@@ -5,10 +5,6 @@ class BusinessSite extends Site {
 	static final double END_RATE = 0.05;
 	static final int END_AMOUNT = 1000;
 	
-	public BusinessSite() {
-		super();
-	}
-	
 	public void addReading(Reading newReading) {
 		_readings[++lastReading] = newReading;
 	}

@@ -1,7 +1,4 @@
 public class LifelineSite extends Site {
-	public LifelineSite() {
-		super();
-	}
 	
 	public void addReading(Reading newReading) {
 		Reading[] newArray = new Reading[_readings.length + 1];

@@ -1,6 +1,6 @@
 import java.util.Date;
 
-public class Site {
+public abstract class Site {
 	protected Zone _zone;
 	protected Reading[] _readings = new Reading[1000];
 	protected static final double TAX_RATE = 0.05;
@@ -95,5 +95,9 @@ public class Site {
 
 		return summerFraction;
 	}
+	
+	public abstract Dollars charge ();
+	
+	public abstract void addReading(Reading newReading);
 	
 }
