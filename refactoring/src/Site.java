@@ -73,4 +73,27 @@ public class Site {
 		return result;
 	}
 
+	protected double getSummerFraction(Date start, Date end){
+		double summerFraction;
+		
+		if (start.after(_zone.summerEnd()) || end.before(_zone.summerStart())) {
+			summerFraction = 0;
+		} else if (!start.before(_zone.summerStart()) && !start.after(_zone.summerEnd()) && !end.before(_zone.summerStart()) && !end.after(_zone.summerEnd())) {
+			summerFraction = 1;
+		} else {
+			double summerDays;
+			
+			if (start.before(_zone.summerStart()) || start.after(_zone.summerEnd())) { // end is in the summer
+				summerDays = dayOfYear(end) - dayOfYear(_zone.summerStart()) + 1;
+			} else { // start is in summer
+				summerDays = dayOfYear(_zone.summerEnd()) - dayOfYear(start) + 1;
+			}
+			
+			return summerFraction = summerDays / (dayOfYear(end) - dayOfYear(start) + 1);
+			
+		}
+
+		return summerFraction;
+	}
+	
 }
