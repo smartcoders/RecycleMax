@@ -1,43 +1,38 @@
 import java.util.Date;
 
-class DisabilitySite {
-	private Reading[] _readings = new Reading[1000];
+class DisabilitySite extends Site {
 	private static final Dollars FUEL_TAX_CAP = new Dollars(0.10);
 	private static final double TAX_RATE = 0.05;
-	private Zone _zone;
 	private static final int CAP = 200;
 
 	public DisabilitySite(Zone zone) {
-		_zone = zone;
+		super(zone);
 	}
 
 	public void addReading(Reading newReading) {
-		int i;
-		for (i = 0; _readings[i] != null; i++)
-			;
-		_readings[i] = newReading;
+		_readings[lastReadingIndex()] = newReading;
 	}
 
-	public int lastReading(){
-		int i;
-		for (i = 0; _readings[i] != null; i++);
-		return i;
-	}
 	public Dollars charge() {
-		int i;
-		Date end;
-		Date start;
-		int usage;
-		i = lastReading();
+
+		int i = lastReadingIndex();
+
 		if (i < 2)
 			throw new NullPointerException();
 
-		usage = _readings[i - 1].amount() - _readings[i - 2].amount();
-		end = _readings[i - 1].date();
-		start = _readings[i - 2].date();
-		
+		Reading lastReading = _readings[i - 1];
+		Reading previousReading = _readings[i - 2];
+
+		Date end = lastReading.date();
+		Date start = previousReading.date();
+
 		start.setDate(start.getDate() + 1); // set to begining of period
-		return charge(usage, start, end);
+
+		return charge(lastUsage(lastReading, previousReading), start, end);
+	}
+
+	private int lastUsage(Reading lastReading, Reading previousReading) {
+		return lastReading.amount() - previousReading.amount();
 	}
 
 	private Dollars charge(int fullUsage, Date start, Date end) {
@@ -53,19 +48,13 @@ class DisabilitySite {
 			summerFraction = 1;
 		else {
 			double summerDays;
-			if (start.before(_zone.summerStart())
-					|| start.after(_zone.summerEnd())) { // end is in the summer
-				summerDays = dayOfYear(end) - dayOfYear(_zone.summerStart())
-						+ 1;
+			if (start.before(_zone.summerStart()) || start.after(_zone.summerEnd())) { // end is in the summer
+				summerDays = dayOfYear(end) - dayOfYear(_zone.summerStart()) + 1;
 			} else { // start is in summer
-				summerDays = dayOfYear(_zone.summerEnd()) - dayOfYear(start)
-						+ 1;
+				summerDays = dayOfYear(_zone.summerEnd()) - dayOfYear(start) + 1;
 			}
-			;
-			summerFraction = summerDays
-					/ (dayOfYear(end) - dayOfYear(start) + 1);
+			summerFraction = summerDays	/ (dayOfYear(end) - dayOfYear(start) + 1);
 		}
-		;
 
 		result = new Dollars((usage * _zone.summerRate() * summerFraction)
 				+ (usage * _zone.winterRate() * (1 - summerFraction)));
