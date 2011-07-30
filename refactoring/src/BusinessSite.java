@@ -1,13 +1,12 @@
-class BusinessSite {
+class BusinessSite extends Site {
 
 	private int lastReading;
-	private Reading[] _readings = new Reading[1000];
-
 	private static final double START_RATE = 0.09;
 	static final double END_RATE = 0.05;
 	static final int END_AMOUNT = 1000;
 	
-	public BusinessSite(){
+	public BusinessSite() {
+		super();
 	}
 	
 	public void addReading(Reading newReading) {
