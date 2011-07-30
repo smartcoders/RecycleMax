@@ -65,12 +65,16 @@ public abstract class Site {
 
 		result += arg.getDate();
 		// check leap year
-		if ((arg.getYear() % 4 == 0)
-				&& ((arg.getYear() % 100 != 0) || ((arg.getYear() + 1900) % 400 == 0))) {
+		if (isLeapYear(arg)) {
 			result++;
 		}
 		;
 		return result;
+	}
+
+	private boolean isLeapYear(Date arg) {
+		return (arg.getYear() % 4 == 0)
+				&& ((arg.getYear() % 100 != 0) || ((arg.getYear() + 1900) % 400 == 0));
 	}
 
 	protected double getSummerFraction(Date start, Date end){
