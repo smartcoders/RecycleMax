@@ -9,9 +9,9 @@ class Tex
   end
   
   def compile
-    matches = @text.match(/"(.+)"/)
-    if matches
-      @text = "``#{matches[1]}''"
+    matches = @text.match(/(.*)"(.+)"(.*)/)
+      if matches
+      @text = "#{matches[1]}``#{matches[2]}''#{matches[3]}"
     end
   end
 end
@@ -29,4 +29,12 @@ describe Tex do
     tex = Tex.new original_text
     tex.compile.should == compiled_text 
   end
+
+  it 'should translate the text to tex format with double quote' do
+    original_text = 'my phrase with "my quote" and second "my quote"'
+    compiled_text = "my phrase with ``my quote'' and second ``my quote''"
+    tex = Tex.new original_text
+    tex.compile.should == compiled_text 
+  end
 end
+
