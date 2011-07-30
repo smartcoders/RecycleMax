@@ -9,11 +9,12 @@ class Tex
   end
   
   def compile
-    @text.scan(/"(.+)"/) do |occurrence|
-      puts occurrence
-      @text = @text.gsub('"'+ occurrence + '"', '``' + ocurrence + "''")
-#        @text = "#{matches[1]}``#{matches[2]}''#{matches[3]}"
+  matches = @text.match(/(.*)"(.+)"(.*)/)
+    if matches 
+      @text = "#{matches[1]}``#{matches[2]}''#{matches[3]}"
+      compile
     end
+    @text
   end
 end
 
@@ -37,5 +38,6 @@ describe Tex do
     tex = Tex.new original_text
     tex.compile.should == compiled_text 
   end
+
 end
 
