@@ -21,13 +21,20 @@ class DisabilitySite
 	
 	public Dollars charge()
 	{
-		int i;
-		for (i = 0; _readings[i] != null; i++);
-		int usage = _readings[i-1].amount() - _readings[i-2].amount();
-		Date end = _readings[i-1].date();
-		Date start = _readings[i-2].date();
-		start.setDate(start.getDate() + 1); //set to begining of period
-		return charge(usage, start, end);
+		
+		if (_readings.length > 0) {
+			int i;
+			System.out.println(_readings);
+			
+			for (i = 0; _readings[i] != null; i++);
+			int usage = _readings[i-1].amount() - _readings[i-2].amount();
+			Date end = _readings[i-1].date();
+			Date start = _readings[i-2].date();
+			start.setDate(start.getDate() + 1); //set to begining of period
+			return charge(usage, start, end);
+		} else {
+			return new Dollars(0);
+		}
 	}
 	
 	private Dollars charge(int fullUsage, Date start, Date end) 

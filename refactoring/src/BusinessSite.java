@@ -6,7 +6,7 @@ class BusinessSite
 	
 	private static final double START_RATE = 0.09;
 	static final double END_RATE = 0.05;
-	static final int END_AMOUNT = 1000;
+	static final int END_AMOUNT = 1000; 
 
 	public void addReading(Reading newReading) 
 	{
