@@ -18,16 +18,24 @@ class DisabilitySite {
 		_readings[i] = newReading;
 	}
 
+	public int lastReading(){
+		int i;
+		for (i = 0; _readings[i] != null; i++);
+		return i;
+	}
 	public Dollars charge() {
 		int i;
-		for (i = 0; _readings[i] != null; i++)
-			;
+		Date end;
+		Date start;
+		int usage;
+		i = lastReading();
 		if (i < 2)
 			throw new NullPointerException();
 
-		int usage = _readings[i - 1].amount() - _readings[i - 2].amount();
-		Date end = _readings[i - 1].date();
-		Date start = _readings[i - 2].date();
+		usage = _readings[i - 1].amount() - _readings[i - 2].amount();
+		end = _readings[i - 1].date();
+		start = _readings[i - 2].date();
+		
 		start.setDate(start.getDate() + 1); // set to begining of period
 		return charge(usage, start, end);
 	}
