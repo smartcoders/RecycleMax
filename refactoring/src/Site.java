@@ -20,6 +20,7 @@ public class Site {
 	
 	int dayOfYear(Date arg) {
 		int result;
+		// TODO fazer o calendar aqui!! 
 		switch (arg.getMonth()) {
 		case 0:
 			result = 0;

@@ -1,3 +1,4 @@
+import java.util.Calendar;
 import java.util.Date;
 
 class DisabilitySite extends Site {
@@ -26,7 +27,13 @@ class DisabilitySite extends Site {
 		Date end = lastReading.date();
 		Date start = previousReading.date();
 
-		start.setDate(start.getDate() + 1); // set to begining of period
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(start);
+		
+		cal.add(Calendar.DATE, 1);
+		start = cal.getTime();
+		
+		//start.setDate(start.getDate() + 1); // set to begining of period
 
 		return charge(lastUsage(lastReading, previousReading), start, end);
 	}
