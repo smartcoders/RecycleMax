@@ -22,12 +22,10 @@ class DisabilitySite
 	public Dollars charge()
 	{
 		
+		if (_readings.length >= 2) {
 			int i;
 			
-			//for (i = 0; _readings[i] != null; i++);
-			i = _readings.length;
-			
-			if (i >= 2 && _readings[i] != null) {
+			for (i = 0; _readings[i] != null; i++);
 			int usage = _readings[i-1].amount() - _readings[i-2].amount();
 			Date end = _readings[i-1].date();
 			Date start = _readings[i-2].date();
