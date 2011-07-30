@@ -16,8 +16,9 @@ class DisabilitySite extends Site {
 
 		int i = lastReadingIndex();
 
-		if (i < 2)
+		if (i < 2) {
 			throw new NullPointerException();
+		}
 
 		Reading lastReading = _readings[i - 1];
 		Reading previousReading = _readings[i - 2];
@@ -38,32 +39,32 @@ class DisabilitySite extends Site {
 		Dollars result;
 		double summerFraction;
 		int usage = Math.min(fullUsage, CAP);
-		if (start.after(_zone.summerEnd()) || end.before(_zone.summerStart()))
+
+		if (start.after(_zone.summerEnd()) || end.before(_zone.summerStart())) {
 			summerFraction = 0;
-		else if (!start.before(_zone.summerStart())
-				&& !start.after(_zone.summerEnd())
-				&& !end.before(_zone.summerStart())
-				&& !end.after(_zone.summerEnd()))
+		} else if (!start.before(_zone.summerStart()) && !start.after(_zone.summerEnd()) && !end.before(_zone.summerStart()) && !end.after(_zone.summerEnd())) {
 			summerFraction = 1;
-		else {
+		} else {
 			double summerDays;
+			
 			if (start.before(_zone.summerStart()) || start.after(_zone.summerEnd())) { // end is in the summer
 				summerDays = dayOfYear(end) - dayOfYear(_zone.summerStart()) + 1;
 			} else { // start is in summer
 				summerDays = dayOfYear(_zone.summerEnd()) - dayOfYear(start) + 1;
 			}
-			summerFraction = summerDays	/ (dayOfYear(end) - dayOfYear(start) + 1);
+			
+			summerFraction = summerDays / (dayOfYear(end) - dayOfYear(start) + 1);
 		}
 
-		result = new Dollars((usage * _zone.summerRate() * summerFraction)
-				+ (usage * _zone.winterRate() * (1 - summerFraction)));
-		result = result
-				.plus(new Dollars(Math.max(fullUsage - usage, 0) * 0.062));
+		result = new Dollars((usage * _zone.summerRate() * summerFraction) + (usage * _zone.winterRate() * (1 - summerFraction)));
+		result = result.plus(new Dollars(Math.max(fullUsage - usage, 0) * 0.062));
 		result = result.plus(new Dollars(result.times(TAX_RATE)));
+		
 		Dollars fuel = new Dollars(fullUsage * 0.0175);
+		
 		result = result.plus(fuel);
-		result = new Dollars(
-				result.plus(fuel.times(TAX_RATE).min(FUEL_TAX_CAP)));
+		result = new Dollars(result.plus(fuel.times(TAX_RATE).min(FUEL_TAX_CAP)));
+
 		return result;
 	}
 }

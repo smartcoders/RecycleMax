@@ -39,13 +39,11 @@ class BusinessSite extends Site {
 			base = new Dollars(base.plus(result.min(new Dollars(75))
 					.minus(new Dollars(50)).times(0.06)));
 		}
-		;
 
 		if (result.isGreaterThan(new Dollars(75))) {
 			base = new Dollars(base.plus(result.minus(new Dollars(75)).times(
 					0.05)));
 		}
-		;
 
 		result = result.plus(base);
 		return result;
