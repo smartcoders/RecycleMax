@@ -6,5 +6,6 @@ p<>. Problem extracted from "Rejected Example":http://www.refactoring.com/reject
 
 h3. Configuração do Eclipse
 
+# "Eclipse Indigo":http://eclipse.org/
 # "Infinitest":http://infinitest.github.com/
 # "Ecl Emma":http://www.eclemma.org/
